@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <p id="get_result"></p>
+        <button onclick="fetchGet()">Get</button>
+    </div>
+    <br />
+
+    <div>
+        <p id="post_result"></p>
+        <button onclick="fetchPost()">Post</button>
+    </div>
+    <br />
+
+    <div>
+        <p id="put_result"></p>
+        <button onclick="fetchPut()">Put</button>
+    </div>
+    <br />
+
+    <div>
+        <p id="delete_result"></p>
+        <button onclick="fetchDelete()">Delete</button>
+    </div>
+    <br />
+</body>
+</html>
+<script>
+
+    function getElement(id) {
+        return document.getElementById(id)
+    }
+
+    function setInnerHTML(element, value) {
+        element.innerHTML = value
+    }
+
+    function fetchGet(event) {
+        fetch("http://localhost:44373/anything.PYS", {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(res => {
+                let paragraph = getElement("get_result")
+                setInnerHTML(paragraph, res)
+            })
+    }
+
+    function fetchPost(event) {
+        fetch("http://localhost:44373/anything.PYS?RESULT=1", {
+            method: "POST"
+        })
+            .then(res => res.json())
+            .then(res => {
+                let paragraph = getElement("post_result")
+                setInnerHTML(paragraph, res)
+            })
+    }
+
+    function fetchPut(event) {
+        fetch("http://localhost:44373/anything.PYS?ADD=1", {
+            method: "PUT"
+        })
+            .then(res => res.json())
+            .then(res => {
+                let paragraph = getElement("put_result")
+                setInnerHTML(paragraph, res)
+            })
+    }
+
+    function fetchDelete(event) {
+        fetch("http://localhost:44373/anything.PYS", {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(res => {
+                let paragraph = getElement("delete_result")
+                console.log(paragraph)
+                setInnerHTML(paragraph, res)
+            })
+    }
+</script>
