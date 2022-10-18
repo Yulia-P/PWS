@@ -1,0 +1,59 @@
+﻿<p>
+    Result:
+<p id="Result"></p>
+<input type="button" id="getResult" value="Result">
+</p>
+
+<p>
+    Set result: <input id="setResultValue" type="number" />
+    <input type="button" id="setResult" value="Set">
+</p>
+
+
+<p>
+<p>Stack: <span id="stack"></span></p>
+<p>
+    new element: <input id="element" type="number" />
+    <input type="button" id="pushElement" value="Push">
+</p>
+<p>
+    <input type="button" id="popElement" value="Pop">
+</p>
+</p>
+
+<script>
+    $(document).ready(function () {
+        $('#getResult').click(function () {
+            $.get("http://localhost:60491/api/values/", function (response) {
+                $("#Result").text(response)
+            })
+        })
+
+        $('#setResult').click(function () {
+            value = $('#setResultValue').val();
+            $.post(`http://localhost:60491/api/values?RESULT=${value}`, (response) => { })
+        })
+
+        $('#pushElement').click(function () {
+            value = $('#element').val();
+
+            $.ajax({
+                type: "PUT",
+                url: `http://localhost:60491/api/values?ADD=${value}`,
+                success: (response) => {
+                    $("#stack").text(response)
+                }
+            });
+        })
+
+        $('#popElement').click(function () {
+            $.ajax({
+                type: "DELETE",
+                url: 'http://localhost:60491/api/values',
+                success: (response) => {
+                    $("#stack").text(response)
+                }
+            });
+        })
+    })
+</script>
