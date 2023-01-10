@@ -1,0 +1,8 @@
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\bin\Debug\Client2.exe.config
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\bin\Debug\Client2.exe
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\bin\Debug\Client2.pdb
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\obj\Debug\Client2.csproj.AssemblyReference.cache
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\obj\Debug\Client2.csproj.SuggestedBindingRedirects.cache
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\obj\Debug\Client2.csproj.CoreCompileInputs.cache
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\obj\Debug\Client2.exe
+C:\Users\37529\Documents\GitHub\PWS\Lab05\Client2\obj\Debug\Client2.pdb

@@ -1,0 +1,7 @@
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\bin\Debug\WCFSiplex.dll.config
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\bin\Debug\WCFSiplex.dll
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\bin\Debug\WCFSiplex.pdb
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\obj\Debug\WCFSiplex.csproj.AssemblyReference.cache
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\obj\Debug\WCFSiplex.csproj.CoreCompileInputs.cache
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\obj\Debug\WCFSiplex.dll
+C:\Users\37529\Documents\GitHub\PWS\Lab05\WCFSiplex\WCFSiplex\obj\Debug\WCFSiplex.pdb

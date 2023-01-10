@@ -1,0 +1,476 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>index</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            border-top: 5px solid #fff;
+            border-bottom: 3px solid #fff;
+            border-collapse: collapse; 
+            outline: 3px solid #ffd300;
+            font-size: 15px;
+            background: #fff!important;
+        }
+        table th {
+            font-weight: bold;
+            padding: 7px;
+            background: #ffd300;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #ffd300;
+        }
+        table td {
+            padding: 7px;
+            border: none;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+            font-size: 15px;
+        }
+        table tbody tr:nth-child(even){
+            background: #f8f8f8!important;
+        }
+        button {
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0 20px;
+            margin: 0 15px 15px 0;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #385898;
+            background-color: #e7f3ff;
+            cursor: pointer;
+            user-select: none;
+            appearance: none;
+            touch-action: manipulation;
+        }
+        button:focus-visible {
+            box-shadow: 0 0 0 2px #666;
+        }
+        button:hover {
+            background-color: #DBE7F2;
+        }
+        button:active {
+            transform: scale(0.96);
+        }
+        button:disabled {
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        input {
+            background-color: #eee;
+            vertical-align: top;
+            outline: none;
+            padding: 0;
+            line-height: 24px;
+            text-indent: 6px;
+            display: inline-block;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            border-radius: 3px;
+            min-width: 50px;
+        } 
+ 
+        input:focus {
+            outline: 2px solid blue;
+        }
+
+        label {
+            padding-right: 6px;
+        }
+
+        .studentEl {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btns-edit {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; gap: 20px;">
+        <div style=" flex: 1;">
+            <div>
+                <h2>Lab3</h2>
+                <label>Message format:</label>
+                <input name="format" type="radio" value="json" id="json" checked />
+                <label for="json">JSON</label>
+                <input name="format" type="radio" value="xml" id="xml" />
+                <label for="xml">XML</label>
+
+                <h2>Get students</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Sort:</label>
+                        </td>
+                        <td>
+                            <input name="sort" type="radio" value="asc" id="asc" checked />
+                            <label for="asc">asc</label>
+                            <input name="sort" type="radio" value="desc" id="desc" />
+                            <label for="desc">desc</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Offset:</label>
+                        </td>
+                        <td>
+                            <input type="number" id="offset" min="0" max="1000" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Limit:</label>
+                        </td>
+                        <td>
+                            <input type="number" id="limit" min="0" max="1000" value="8" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Min Id:</label>
+                        </td>
+                        <td>
+                            <input type="number" id="minid" min="0" max="1000" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Max Id:</label>
+                        </td>
+                        <td>
+                            <input type="number" id="maxid" min="0" max="1000" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Columns:</label>
+                        </td>
+                        <td>
+                            <input name="columnId" type="checkbox" value="id" id="id" />
+                            <label for="id">Id</label>
+                            <input name="columnName" type="checkbox" value="name" id="nameC" />
+                            <label for="nameC">Name</label>
+                            <input name="columnNumber" type="checkbox" value="number" id="numberC" />
+                            <label for="numberC">Phone</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Like:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="like" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Global like:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="globallike" />
+                        </td>
+                    </tr>
+                </table>
+                <input style="margin: 5px" type="button" onclick="getStudents()" value="GET" />
+
+                <h2>Add student</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="number" />
+                        </td>
+                    </tr>
+                </table>
+
+                <input style="margin: 5px" type="button" onclick="addStudent()" value="ADD" />
+            </div>
+
+            <div id="result2" name="result2" style="width: 100%; height: 100%;"></div>
+        </div>    
+        <div style="flex: 1; ">
+            <div id="result" name="result" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+<script>
+        var limit = 8;
+        var page = 0;
+        function getStudents(offset) {
+            let data = {};
+            var ele = document.getElementsByName('sort');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                    data["sort"] = ele[i].value;
+            }
+            if ($("#limit").val() != "") {
+                data["limit"] = $("#limit").val();
+                this.limit = data["limit"];
+            }
+            else 
+                data["limit"] = this.limit;
+            if ($("#offset").val() != "") {
+                var of = $("#offset").val();
+                data["offset"] = this.limit * this.page + parseInt(of);
+            }
+            else
+                data["offset"] = this.limit * this.page;
+            if ($("#minid").val() != "")
+                data["minid"] = $("#minid").val();
+            if ($("#maxid").val() != "")
+                data["maxid"] = $("#maxid").val();
+            if (data["maxid"] < data["minid"]) {
+                $("#result").html('Error: Max Id < Min Id');
+                return;
+            }
+            data["columns"] = '';
+            ele = document.getElementsByName('columnId');
+            if (ele[0].checked)
+                data["columns"] += 'id,';
+            ele = document.getElementsByName('columnName');
+            if (ele[0].checked)
+                data["columns"] += 'name,';
+            ele = document.getElementsByName('columnNumber');    
+            if (ele[0].checked)
+                data["columns"] += 'number';
+            if ($("#like").val() != "")
+                data["like"] = $("#like").val();
+            if ($("#globalike").val() != "")
+                data["globallike"] = $("#globallike").val();
+            ele = document.getElementsByName('format');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                    data["format"] = ele[i].value;
+            }
+            $("#result").html('');
+            
+            $.ajax({
+                url: `/api/Students.${data["format"]}`,
+                data: data,
+                type: "GET",
+                contentType: "multipart/form-data",
+                success: result => {
+                    this.page = 0
+                    if (data["format"] == "xml") {
+                        this.generateList(result);
+                    } else {
+                        if (result.error) {
+                            $("#result").html(result.error);
+                            return;
+                        }
+                        this.generateList(result);
+                    }
+                },
+                error: (error) => {
+                    this.sendError(error, data["format"]);
+                }
+            })
+        }
+        function addStudent() {
+            let data = {};
+            if ($("#name").val() != "") data["name"] = $("#name").val();
+            var num = $("#number").val()
+            if (num != "") {
+                if (/\+375\(\d{2}\)\d{3}\-\d{2}\-\d{2}$/.test(num)) {
+                    data["number"] = num;
+                }
+                else {
+                    $("#result").html('Error: Number is not correct');
+                    return;
+                }
+            } 
+
+            var ele = document.getElementsByName('format');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                    data["format"] = ele[i].value;
+            }
+            $.ajax({
+                url: "/api/Students?format=" + data["format"],
+                data: JSON.stringify(data),
+                type: "POST",
+                success: result => {
+                    if (data["format"] == "xml") {
+                        console.log(result);
+                        var xmlText = new XMLSerializer().serializeToString(result);
+                        $("#result2").val(xmlText);
+                    }
+                    else {
+                        $("#result2").html(JSON.stringify(result));
+                    }
+                    getStudents();
+                },
+                error: (error) => {
+                    this.sendError(error, data["format"]);
+                }
+            })
+        }
+
+        function send(id, href, method) {
+            let data = {};
+            data["id"] = id;
+            var ele = document.getElementsByName('format');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                    data["format"] = ele[i].value;
+            }
+            if (method == 'PUT') {
+                if ($("#name" + id))
+                    data["name"] = $("#name" + id).val();
+                if ($("#number" + id))
+                    data["number"] = $("#number" + id).val();
+            }
+            $.ajax({
+                url: href + "?format=" + data["format"],
+                data: JSON.stringify(data),
+                type: method,
+                contentType: "multipart/form-data",
+                success: result => {
+                    if (data["format"] == "xml") {
+                        var xmlText = new XMLSerializer().serializeToString(result);
+                        $("#result2").html(xmlText);
+                    }
+                    else {
+                        $("#result2").html(JSON.stringify(result));
+                    }
+                    getStudents();
+                },
+                error: (error) => {
+                    this.sendError(error, data["format"]);
+                }
+            })
+
+        }
+
+        function sendError(error, type) {
+            if (type == "xml") {
+                var obj = {};
+                $(error.responseXML).find("Error").each(function (el) {
+                    obj.Code = $(this).find('Code').text();
+                    obj.Link = {};
+                    var links = $(this).find('Link').each(function (e) {
+                        obj.Link.Href = $(this).find('Href').text();
+                        obj.Link.Method = $(this).find('Method').text();
+                        obj.Link.Message = $(this).find('Message').text();
+                    });
+                    console.log(obj)
+                });
+
+                var xmlText = new XMLSerializer().serializeToString(error.responseXML);
+                $("#result").html(xmlText);
+                $.ajax({
+                    url: obj.Link.Href + "?format=" + type,
+                    type: obj.Link.Method,
+                    contentType: "multipart/form-data",
+                    success: result => {
+                        var xmlText = new XMLSerializer().serializeToString(result);
+                        $("#result2").html(xmlText);
+                    },
+                    error: (error) => {
+                        $("#result2").html(error.responseText);
+                    }
+                })
+
+
+            }
+            else {
+                $("#result").html(error.responseText);
+                $.ajax({
+                    url: error.responseJSON.Link.Href + "?format=" + type,
+                    type: error.responseJSON.Link.Method,
+                    contentType: "multipart/form-data",
+                    success: result => {
+                        $("#result2").html(JSON.stringify(result));
+                    },
+                    error: (error) => {
+                        $("#result2").html(error.responseText);
+                    }
+                })
+
+            }
+        }
+
+        function generateList(result) {
+            var htmlCode = "<p><button onclick=\"prev()\">Prev</button>";
+            htmlCode += "<button onclick=\"next()\">Next</button></p>";
+            if (result.length == 0) {
+                htmlCode += "<p>not found</p>";
+            } else {
+                result.forEach(el => {
+                    htmlCode += "<div class='studentEl'>";
+                    if (el.Id)
+                        htmlCode += "Id: " + el.Id;
+                    if (el.Name)
+                        htmlCode += " Name: " + el.Name;
+                    if (el.Number)
+                        htmlCode += " Number: " + el.Number;
+                    if (el.Name && el.Id)
+                        htmlCode += "</br><label>Name:</label><input type=\"text\" id=\"name" + el.Id + "\" value=\"" + el.Name + "\"/>";
+                    if (el.Number && el.Id)
+                        htmlCode += "</br><label>Phone:</label><input type=\"text\" id=\"number" + el.Id + "\" value=\"" + el.Number + "\"/>";
+                    if (el.Id)
+                        htmlCode += "</br><div class='btns-edit'><button onclick=\"send(" + el.Id + ",'" + el.Links[0].Href + "','" + el.Links[0].Method + "')\">Get</button>";
+                    if (el.Id && (el.Number || el.Name))
+                        htmlCode += "<button onclick=\"send(" + el.Id + ",'" + el.Links[1].Href + "','" + el.Links[1].Method + "')\">Update</button>";
+                    if (el.Id)
+                        htmlCode += "<button onclick=\"send(" + el.Id + ",'" + el.Links[2].Href + "','" + el.Links[2].Method + "')\">Delete</button></div>";
+                    htmlCode += "</div>";
+                })
+            }
+            $("#result").html(htmlCode);
+        }
+
+        function prev() {
+            this.page -= 1;
+            if (this.page < 0)
+                this.page = 0;
+            this.getStudents();
+        }
+
+        function next() {
+            this.page += 1;
+            this.getStudents();
+        }
+    </script>
+</body>
+</html>

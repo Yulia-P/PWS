@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b2dbdbb-cd3b-4093-95df-d72894ee1018" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Services_Lab7/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="82d91c98-f64b-4211-91a0-9aae8cf20ee4" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cf9cefde-53ff-4b29-9fdc-42c5f20a05b1" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+    <MetadataFile FileName="System.ServiceModel.Syndication.xsd" MetadataType="Schema" ID="98f5128f-9850-44ae-a3c1-8490c21f8b7f" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+    <MetadataFile FileName="Atom.xsd" MetadataType="Schema" ID="58b16e38-2d30-4646-999b-b2b7b74f8840" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9cf6985b-cb51-4f46-b711-810315e78d9a" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="bd4f6c17-bbe5-4147-bb5e-9f51571fdd13" SourceId="1" SourceUrl="http://localhost:8733/Services_Lab7/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

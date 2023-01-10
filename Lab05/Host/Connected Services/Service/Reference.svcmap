@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d08f25c5-b4f1-4c49-ae13-b3d4ff1902ac" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="8dde24b5-7163-48a3-b2b7-25a08c2393c2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="31a0fc93-baa7-476b-b76f-5f998b03dae1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="643057b2-38f9-4f37-a22a-94834d5305da" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="6c060f68-2ab9-4eb9-959f-7c8f0af8134f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/?xsd=xsd1" />
+    <MetadataFile FileName="WCFSiplex.wsdl" MetadataType="Wsdl" ID="b02219bc-7c11-4a40-8434-b9534ee30cbe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFSiplex/Service1/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

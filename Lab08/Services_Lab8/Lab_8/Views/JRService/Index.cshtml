@@ -1,0 +1,57 @@
+﻿
+<body>
+    <div style="margin-top:20px">
+        <form style="width:1200px">
+            <div>
+                <input type="text" placeholder="key" name="key" />
+                <input type="number" name="value" placeholder="value" />
+            </div>
+            <div>
+                <input type="button" onclick="processRequest(this.form.key.value, this.form.value.value,`SetM`, this.form.res)" value="SetM" />
+                <input type="button" onclick="processRequest(this.form.key.value, this.form.value.value,`AddM`, this.form.res)" value="AddM" />
+                <input type="button" onclick="processRequest(this.form.key.value, this.form.value.value,`SubM`, this.form.res)" value="SubM" />
+                <input type="button" onclick="processRequest(this.form.key.value, this.form.value.value,`MulM`, this.form.res)" value="MulM" />
+                <input type="button" onclick="processRequest(this.form.key.value, this.form.value.value,`DivM`, this.form.res)" value="DivM" />
+            </div>
+            <div>
+                <input name="res" type="text" readonly="readonly" style="width: 30%; max-width: 100%" />
+            </div>
+        </form>
+        <form style="margin-top:20px">
+            <input type="text" placeholder="key" name="key"  />
+            <input type="button" onclick="processRequest(this.form.key.value, null,`GetM`, this.form.res)" value="GetM" />
+            <input name="res" type="text" readonly="readonly" style="width: 35%; max-width: 100%;" />
+        </form>
+
+    </div>
+    <script>
+
+        const processRequest = (key, value, operation, resInp) => {
+            let body = {
+                Id: 1,
+                Method: operation,
+                Jsonrpc: "2.0",
+                Params: {
+                    Key: key,
+                    Value: value == null ? "" : value
+                }
+            }
+            const req = new XMLHttpRequest();
+            req.open("POST", "/JRService/Single", true);
+            req.onreadystatechange = function () {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        resInp.value = req.responseText;
+                    }
+                    else {
+                        alert("status = " +
+                            req.status + "\n" + req.statusText);
+                    }
+                }
+            }
+            req.setRequestHeader("Content-Type", "application/json");
+            req.send(JSON.stringify(body));
+        }
+    </script>
+</body>
+

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Services_Lab6ModelContainer" CdmEntityContainer="Services_Lab6Entities2">
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="Services_Lab6Model.Note">
+        <MappingFragment StoreEntitySet="Note">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_student" ColumnName="Id_student" />
+          <ScalarProperty Name="Subj" ColumnName="Subj" />
+          <ScalarProperty Name="Note1" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="Services_Lab6Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
